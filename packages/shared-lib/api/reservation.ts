@@ -85,3 +85,12 @@ export const updateResource = async (resourceData: Resource) => {
     authMode: "lambda",
   });
 };
+
+export const getReservationListByResource = async (resourceId: string) => {
+  return await client.models.Reservation.listByResource(
+    { resourceId },
+    {
+      sortDirection: "DESC",
+    },
+  );
+};

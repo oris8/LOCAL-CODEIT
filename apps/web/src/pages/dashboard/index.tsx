@@ -399,10 +399,18 @@ export default function Dashboard() {
     setFetchedItem(data);
   };
 
-  const searchReservation = async () => {
-    // const { data } = await api.searchReservations(searchData.reservationFilter);
-    // setFetchedItem(data);
-    alert(`Fetched Reservations on: ${searchData.reservationFilter}`);
+  const getReservation = async () => {
+    const { data } = await api.getReservation(searchData.reservationId);
+    setFetchedItem(data);
+    alert(`Fetched Reservations on: ${searchData.reservationId}`);
+  };
+
+  const getReservationListByResource = async () => {
+    const { data } = await api.getReservationListByResource(
+      searchData.reservationId,
+    );
+    setFetchedItem(data);
+    alert(`Fetched Reservations on: ${searchData.reservationId}`);
   };
 
   return (
@@ -548,7 +556,10 @@ export default function Dashboard() {
         value={searchData.reservationId}
         onChange={(e) => handleInputChange(e, setSearchData)}
       />
-      <button onClick={searchReservation}>Search Reservation</button>
+      <button onClick={getReservation}>Search Reservation</button>
+      <button onClick={getReservationListByResource}>
+        getReservationListByResource
+      </button>
 
       <h3>Search Reservation</h3>
 
@@ -567,7 +578,7 @@ export default function Dashboard() {
         value={searchData.reservationFilter}
         onChange={(e) => handleInputChange(e, setSearchData)}
       />
-      <button onClick={searchReservation}>Search Reservation</button>
+      {/* <button onClick={searchReservation}>Search Reservation</button> */}
 
       <div>
         <h2>Fetched Item</h2>
