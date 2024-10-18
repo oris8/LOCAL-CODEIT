@@ -400,8 +400,8 @@ export default function Dashboard() {
   };
 
   const searchReservation = async () => {
-    const { data } = await api.searchReservations(searchData.reservationFilter);
-    setFetchedItem(data);
+    // const { data } = await api.searchReservations(searchData.reservationFilter);
+    // setFetchedItem(data);
     alert(`Fetched Reservations on: ${searchData.reservationFilter}`);
   };
 
