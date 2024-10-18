@@ -63,7 +63,9 @@ export const updateUser = async (userData: User) => {
 
 // Resource 관련 함수들
 export const createResource = async (resourceData: Resource) => {
-  return await client.models.Resource.create(resourceData);
+  return await client.models.Resource.create(resourceData, {
+    authMode: "lambda",
+  });
 };
 
 export const getResource = async (id: string) => {

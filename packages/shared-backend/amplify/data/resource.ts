@@ -1,7 +1,7 @@
 import {
   a,
   defineData,
-  defineFunction,
+  // defineFunction,
   type ClientSchema,
 } from "@aws-amplify/backend";
 import { reservationConflictHandler } from "../function/reservationConflictHandler/resource";
@@ -86,12 +86,12 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: "userPool",
-    lambdaAuthorizationMode: {
-      function: defineFunction({
-        entry: "./custom-authorizer.ts",
-      }),
-      timeToLiveInSeconds: 300, // 토큰 유지 시간
-    },
+    // lambdaAuthorizationMode: {
+    //   function: defineFunction({
+    //     entry: "./custom-authorizer.ts",
+    //   }),
+    //   timeToLiveInSeconds: 300, // 토큰 유지 시간
+    // },
     apiKeyAuthorizationMode: {
       expiresInDays: 30,
     },
