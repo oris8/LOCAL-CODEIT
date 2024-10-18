@@ -34,16 +34,12 @@ export const searchReservations = async () => {
 };
 
 export const updateReservation = async (reservationData: Reservation) => {
-  return await client.models.Reservation.update(reservationData, {
-    authMode: "lambda",
-  });
+  return await client.models.Reservation.update(reservationData);
 };
 
 // User 관련 함수들
 export const createUser = async (userData: User) => {
-  return await client.models.User.create(userData, {
-    authMode: "lambda",
-  });
+  return await client.models.User.create(userData);
 };
 
 export const getUser = async (id: string) => {
@@ -56,16 +52,12 @@ export const searchUsers = async () => {
 };
 
 export const updateUser = async (userData: User) => {
-  return await client.models.User.update(userData, {
-    authMode: "lambda",
-  });
+  return await client.models.User.update(userData);
 };
 
 // Resource 관련 함수들
 export const createResource = async (resourceData: Resource) => {
-  return await client.models.Resource.create(resourceData, {
-    authMode: "lambda",
-  });
+  return await client.models.Resource.create(resourceData);
 };
 
 export const getResource = async (id: string) => {
@@ -83,9 +75,7 @@ export const searchResources = async () => {
 };
 
 export const updateResource = async (resourceData: Resource) => {
-  return await client.models.Resource.update(resourceData, {
-    authMode: "lambda",
-  });
+  return await client.models.Resource.update(resourceData);
 };
 
 export const getReservationListByResource = async (resourceId: string) => {

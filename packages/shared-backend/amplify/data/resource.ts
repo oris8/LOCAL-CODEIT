@@ -68,7 +68,7 @@ const schema = a.schema({
         .sortKeys(["date", "startTime", "status"])
         .queryField("listByResource"),
     ])
-    .authorization((allow) => [allow.custom()]),
+    .authorization((allow) => [allow.guest()]),
 
   reservationConflictHandler: a
     .query()
