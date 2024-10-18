@@ -76,7 +76,8 @@ const schema = a.schema({
       name: a.string(),
     })
     .returns(a.string())
-    .handler(a.handler.function(reservationConflictHandler)),
+    .handler(a.handler.function(reservationConflictHandler))
+    .authorization((allow) => [allow.guest()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
