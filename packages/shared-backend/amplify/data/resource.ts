@@ -4,6 +4,7 @@ import {
   defineFunction,
   type ClientSchema,
 } from "@aws-amplify/backend";
+import { reservationConflictHandler } from "../function/reservationConflictHandler/resource";
 
 const schema = a.schema({
   // User Table
@@ -68,6 +69,14 @@ const schema = a.schema({
         .queryField("listByResource"),
     ])
     .authorization((allow) => [allow.custom()]),
+
+  reservationConflictHandler: a
+    .query()
+    .arguments({
+      name: a.string(),
+    })
+    .returns(a.string())
+    .handler(a.handler.function(reservationConflictHandler)),
 });
 
 export type Schema = ClientSchema<typeof schema>;

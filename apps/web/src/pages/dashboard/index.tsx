@@ -359,6 +359,8 @@ export default function Dashboard() {
     reservationFilter: "",
   });
 
+  console.log(fetchedItem);
+
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     setter: React.Dispatch<React.SetStateAction<any>>,
